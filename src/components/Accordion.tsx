@@ -4,11 +4,12 @@ import "./styles/Accordion.scss"
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
 import { AccordionProps, sectionType } from "../defs/types.def";
+import { Rating } from "react-simple-star-rating";
 export default function Accordion({setMark,mark}:AccordionProps) {
    const [sections, setSections] = useState<sectionType[]>([
     { id: 1, title: 'Categories', value:"categories"  ,checkboxes:["electronics","jewelery","men's clothing","women's clothing"], isOpen: false },
     { id: 2, title: 'Price Range',value:"price" ,checkboxes: ['Rs.500 - Rs.400', 'Rs.400 - Rs.300','Rs.300 - Rs.200','Rs.200-Rs.100','Rs.100-Rs.0'], isOpen: false },
-    // Add more sections as needed
+    { id: 3, title: 'Rating', value: 'rating', checkboxes: ['1', '2', '3', '4', '5'], isOpen: false },
   ]);
 
   const handleAccordionToggle = (sectionId:number) => {
@@ -67,7 +68,7 @@ export default function Accordion({setMark,mark}:AccordionProps) {
                     </div>
                     <div className="checkbox-item-label">
 
-                <label htmlFor={`checkbox_${section.id}_${index + 1}`}>{checkbox}</label>
+                  {section.value === "rating" ? <Rating size={20} readonly={true} initialValue={parseInt(checkbox)}/>:<label htmlFor={`checkbox_${section.id}_${index + 1}`}>{checkbox}</label>}
                     </div>
               </div>
             ))}

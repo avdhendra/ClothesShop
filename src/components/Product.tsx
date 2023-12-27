@@ -31,7 +31,7 @@ export default function Product({ productItem}:ItemProps) {
           <span className="new-price">Rs.{productItem.price}</span>
         </div>
         <div className="card-rating">
-          <Rating  onClick={handleRating} initialValue={rating}size={20} />
+          <Rating readonly={true}  onClick={handleRating} initialValue={rating}size={20} />
         </div>
       </div>
    
