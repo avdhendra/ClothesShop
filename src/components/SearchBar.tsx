@@ -9,7 +9,7 @@ export default function SearchBar({ search, onClick, type }: SearchBarProps) {
   const navigate = useNavigate()
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      // Call the onEnterPress function with the input value
+     
      
       if (search?.current?.value) {
         navigate(`/product/${search?.current?.value}`)

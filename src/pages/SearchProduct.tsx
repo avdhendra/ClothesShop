@@ -42,7 +42,7 @@ const SearchProduct = () => {
         try {
           const response = await api.get('/products');
           const data = response.data;
-          console.log("data",data)
+         
           const filteredItems = data.filter((item: { [x: string]: string }) =>
             ['category', 'description', 'title'].some((key: string) =>
               item[key].toLowerCase().includes(id?.toLowerCase())
@@ -62,6 +62,7 @@ const SearchProduct = () => {
           setTrending(filteredData);
         } catch (error) {
           console.error('Error fetching data:', error);
+          
         } finally {
           setLoading(false);
         }
@@ -87,9 +88,7 @@ const SearchProduct = () => {
             <Accordion setMark={setMarkBox} mark={markbox} />
           </div>
           <div className='searchproduct-container-result-product-component'>
-            {/* {trending.map((trend: Item, index: number) => (
-              <Product key={index} productItem={trend} />
-            ))} */}
+           
  {loading ? (
               <Loader/>
             ) : trending.length === 0 ? (
